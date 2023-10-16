@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+</head>
+<body>
+    <div id="common">
+
+    </div>
+    <script>
+        const sentence = "text of the sentence word Im four is the inthe first in four to in is the to to up to you!";
+        const wordCount = sentence.toLowerCase().match(/\b\w+\b/g).reduce((count, word) => {
+        count[word] = (count[word] || 0) + 1;
+        return count;
+        }, {});
+        const sortedWords = Object.entries(wordCount).sort((x,y) => y[1]- x[1]);
+        const CommonWords = sortedWords.slice(0, 3);
+        console.log(CommonWords);
+
+
+        var common=document.getElementById("common");
+        common.innerHTML=CommonWords;
+
+    </script>
+</body>
+</html>
